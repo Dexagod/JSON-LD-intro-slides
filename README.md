@@ -1,3 +1,3 @@
-# VAIA-class5
+# Slides
 
 Short introduction to RDF and JSON-LD
