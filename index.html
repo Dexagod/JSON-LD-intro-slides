@@ -51,10 +51,13 @@
         <a href="#toc-json-jsonld">JSON & JSON-LD</a>
       </li>
       <li>
-        <a href="#toc-framing">JSON-LD Framing</a>
+        <a href="#toc-processing">JSON-LD Framing</a>
       </li>
       <li>
-        <a href="#toc-tooling">JSON-LD Tooling</a>
+        <a href="#toc-verification">Verification</a>
+      </li>
+      <li>
+        <a href="#toc-tooling">Tooling</a>
       </li>
     </ul>
   </div>
@@ -79,7 +82,19 @@
     </ul>
   </div>
 
-  <div class="slide " id="linked-data-on-the-web-intro">
+  <div class="slide " id="rdf-intro">
+    <h2>
+      Resource Description Framework (RDF)
+    </h2>
+    <ul>
+      <li>
+        A method for describing and exchanging graph data.
+      </li>
+    </ul>
+    <p>&lt;something&gt; &lt;has a relation to&gt; &lt;something else&gt; .</p>
+  </div>
+
+  <div class="slide " id="linked-data-intro">
     <h2>
       Linked Data on the Web
     </h2>
@@ -95,7 +110,8 @@
         </ul>
       </li>
       <li>
-        Linked Data can be dereferenced for context
+        These identifiers create <strong>interlinking</strong> between data <br>
+        and allow for the <strong>dereferencing</strong> of links
         <ul>
           <li>
             The <code>http://xmlns.com/foaf/0.1/name</code> property <br>
@@ -108,7 +124,17 @@
 
   <div class="slide " id="linked-data-turtle">
     <h2>
-      it can be a turtle serialization
+      An example RDF graph
+    </h2>
+    <figure class="width margin">
+      <img src="images/rdfgraph.jpg" />
+    </figure>
+  </div>
+
+
+  <div class="slide " id="linked-data-turtle">
+    <h2>
+      ... as a turtle serialization
     </h2>
     <figure class="width margin">
       <img src="images/linked-data-ttl.svg" />
@@ -117,7 +143,7 @@
 
   <div class="slide " id="linked-data-jsonld">
     <h2>
-      it can be a json-ld serialization
+      ... as a json-ld serialization
     </h2>
     <figure class="width margin" style="width: 100%;">
       <img src="images/linked-data-jsonld.svg" />
@@ -126,7 +152,7 @@
 
   <div class="slide " id="linked-data-script">
     <h2>
-      it can be embedded in a Web page as a script
+      ... embedded in a Web page as a script
     </h2>
     <figure class="width margin">
       <img src="images/linked-data-script.svg" />
@@ -135,7 +161,7 @@
 
   <div class="slide " id="linked-data-rdfa">
     <h2>
-      or it can be embedded directly into the HTML as RDFa
+      ... embedded directly into the HTML as RDFa
     </h2>
     <figure class="width margin">
       <img src="images/linked-data-rdfa.svg" />
@@ -164,16 +190,37 @@
         <a href="#toc-json-jsonld">JSON & JSON-LD</a>
       </li>
       <li>
-        <a href="#toc-framing">JSON-LD Framing</a>
+        <a href="#toc-processing">JSON-LD Framing</a>
       </li>
       <li>
-        <a href="#toc-tooling">JSON-LD Tooling</a>
+        <a href="#toc-verification">Verification</a>
+      </li>
+      <li>
+        <a href="#toc-tooling">Tooling</a>
       </li>
     </ul>
   </div>
 
+  <div class="slide " id="json-and-jsonld-intro">
+    <h2>
+      JSON and JSON-LD.
+    </h2>
+    <ul>
+      <li>
+        JavaScript Object Notation (JSON) is a lightweight, text-based,
+        <strong>language-independent data interchange format</strong>.
+      </li>
+      <li>
+        JSON-LD is a JSON-based <strong>format to serialize Linked Data</strong>,
+        designed to integrate into systems that already use JSON.
+      </li>
+      <li>
+        JSON-LD does not provide any guarantees about its form.
+      </li>
+    </ul>
+  </div>
 
-  <div class="slide " id="json-and-ld">
+  <div class="slide " id="json-and-jsonld-example">
     <h2>
       JSON and JSON-LD.
     </h2>
@@ -202,7 +249,7 @@
       JSON and JSON-LD.
     </h2>
     <p>
-      ... but behave very differently.
+      ... but JSON-LD can behave very differently.
     </p>
     
     <div style="width: 45%; display: inline-block;">
@@ -244,28 +291,128 @@
     </div>
   </div>
 
-  <div class="slide " id="json-ld-playground">
+
+  <div class="slide " idet acquainted with JSON-LD="json-ld-context">
     <h2>
-      You can get acquainted using the<br><a href="https://json-ld.org/playground/">JSON-LD Playground</a>
+      The JSON-LD context
+    </h2>
+    <ul>
+      <li>
+        Added using the <strong><code>@context</code></strong> key 
+      </li>
+      <li>
+        Provides the context of the json object
+        <ul>
+          <li>It maps the terms of the JSON object to IRIs.</li>
+        </ul>
+      </li>
+      <li>
+        Can describe complex mappings
+        <ul>
+          <li>
+            mapping, typed values, collection ordering, ...
+          </li>
+        </ul>
+      </li>
+      <li>
+        see <a href="https://www.w3.org/TR/json-ld11/">the spec</a> for more information
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide " idet acquainted with JSON-LD="json-ld-context-example">
+    <h2>
+      The JSON-LD context
+    </h2>
+    <figure class="width margin">
+      <img src="images/context.png" />
+    </figure>
+  </div>
+
+
+
+  <div class="slide " idet acquainted with JSON-LD="json-ld-playground">
+    <h2>
+      You can try out JSON-LD using the<br><a href="https://json-ld.org/playground/">JSON-LD Playground</a>
     </h2>
   </div>
 
   
-  <div class="slide " id="jsonld-as-json">
+  <div class="slide " id="jsonld-as-json-1">
     <h2>
-      JSON-LD can be used as JSON
+      When can you process JSON-LD as JSON?
+    </h2>
+    <ul>
+      <li>If you can <strong>guarantee</strong> that no actor in the chain processes it as RDF.
+        <ul>
+          <br>
+          <li>
+            RDF makes no guarantees on the form of a JSON-LD document.
+          </li>
+          <br>
+          <li>
+            As long as everybody in the chain treats it as JSON, you can process it as such.
+          </li>
+        </ul>
+      </li>
+    <ul>
+     
+  </div>
+
+
+  
+  <div class="slide " id="jsonld-as-json-2">
+    <h2>
+      When can you process JSON-LD as JSON?
     </h2>
     <ul>
       <li>
-      As long as you keep it <strong>internal</strong>
-      <br>and do NOT process it as RDF
-      </li>
-      <li>
         By giving it a specific <strong>Frame</strong>
         <br>using <a href="https://www.w3.org/TR/json-ld-framing/">JSON-LD Framing</a>
+        <ul>
+          <br>
+          <li>
+            By using JSON-LD Framing, 
+            <br>
+            we can <strong>enforce a specific layout upon the data</strong>.
+          </li>
+          <br>
+          <li>
+            This way, we do not need to worry about
+            <br>
+            the format of the RDF in the intermediate steps.
+          </li>
+        </ul>
       </li>
+    </ul>
+  </div>
+
+
+
+  
+  <div class="slide " id="jsonld-as-json-3">
+    <h2>
+      When can you process JSON-LD as JSON?
+    </h2>
+    <ul>
       <li>
-        By processing it as RDF and creating our own JSON.
+        We can process the JSON-LD document as RDF.
+        <ul>
+          <br>
+          <li>
+            We can create any intermediary format
+            <br>
+            JSON, XML, ... directly from the RDF.
+          </li>
+          <br>
+          <li>
+            For this, there are mulitple approaches:
+            <br>
+            querying the data using SPARQL,
+            <br>
+            processing triples directly, ...
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
@@ -273,9 +420,13 @@
 
 
 
+
+
 <!-- ################################################################################ -->
 
-  <div class="slide toc" id="toc-framing">
+  
+
+  <div class="slide toc" id="toc-processing">
     <h2>
       <a class="series" href="../">RDF & JSON-LD</a>
       <br>
@@ -289,10 +440,13 @@
         <a href="#toc-json-jsonld">JSON & JSON-LD</a>
       </li>
       <li class="current">
-        <a href="#toc-framing">JSON-LD Framing</a>
+        <a href="#toc-processing">JSON-LD Framing</a>
       </li>
       <li>
-        <a href="#toc-tooling">JSON-LD Tooling</a>
+        <a href="#toc-verification">Verification</a>
+      </li>
+      <li>
+        <a href="#toc-tooling">Tooling</a>
       </li>
     </ul>
   </div>
@@ -300,21 +454,78 @@
 
   <div class="slide" id="framing-intro">
     <h2>
-      JSON-LD Framing.
+      JSON-LD Framing
     </h2>
     <p>
       JSON-LD Framing allows developers to force a specific tree layout to a JSON-LD document.
     </p>
+    <p>You can find the spec <a href="https://www.w3.org/TR/json-ld11-framing/">HERE</a></p>
+  </div>
+  
+  <div class="slide" id="framing-explanation">
+    <h2>
+      JSON-LD Framing
+    </h2>
+    <ul>
+      <li>
+        Framing works by matching on a given structure
+        <br> of identifiers, types, properties, ...
+      </li>
+      <li>
+        It provides <a href="https://www.w3.org/TR/json-ld11-framing/#framing-flags">flags</a> for specific functionality
+        <ul>
+          <br>
+          <li>
+            the <strong><code>@requireall</code></strong> flag requires all properties in the frame object to be matched.
+          </li>
+          <br>
+          <li>
+            the <strong><code>@explicit</code></strong> flag will only output properties explicitly declared in the frame.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="framing-example">
+    <h2>
+      JSON-LD Framing
+    </h2>
     <ul>
       <li>
         <a href="https://json-ld.org/playground/#startTab=tab-framed&json-ld=%7B%22%40context%22%3A%7B%22%40vocab%22%3A%22http%3A%2F%2Fschema.org%2F%22%2C%22contains%22%3A%7B%22%40type%22%3A%22%40id%22%7D%2C%22containedBy%22%3A%7B%22%40type%22%3A%22%40id%22%7D%2C%22location%22%3A%7B%22%40type%22%3A%22%40id%22%7D%7D%2C%22%40graph%22%3A%5B%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2FGhentLibrary%22%2C%22%40type%22%3A%22Library%22%2C%22location%22%3A%22https%3A%2F%2Fwww.wikidata.org%2Fwiki%2FQ1296%22%2C%22contains%22%3A%22http%3A%2F%2Fexample.org%2Flibrary%2Fbooks%2F1984%22%7D%2C%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2Flibrary%2Fbooks%2F1984%22%2C%22%40type%22%3A%22Book%22%2C%22creator%22%3A%22George%20Orwell%22%2C%22title%22%3A%22Nineteen%20Eighty-Four%22%2C%22containedBy%22%3A%22http%3A%2F%2Fexample.org%2FGhentLibrary%22%7D%5D%7D&frame=%7B%22%40context%22%3A%7B%22%40vocab%22%3A%22http%3A%2F%2Fschema.org%2F%22%7D%2C%22%40explicit%22%3Atrue%2C%22%40type%22%3A%22Library%22%2C%22location%22%3A%7B%7D%2C%22contains%22%3A%7B%22%40explicit%22%3Atrue%2C%22%40type%22%3A%22Book%22%2C%22title%22%3A%7B%7D%2C%22creator%22%3A%7B%7D%7D%7D&context=%7B%22%40context%22%3A%22http%3A%2F%2Fschema.org%2F%22%7D">
-          We can create different layouts
+          We can enforce different layouts
         </a>
       </li>
       <li>
         <a href="https://json-ld.org/playground/#startTab=tab-framed&json-ld=%7B%22%40context%22%3A%7B%22%40vocab%22%3A%22http%3A%2F%2Fschema.org%2F%22%2C%22contains%22%3A%7B%22%40type%22%3A%22%40id%22%7D%2C%22containedBy%22%3A%7B%22%40type%22%3A%22%40id%22%7D%2C%22location%22%3A%7B%22%40type%22%3A%22%40id%22%7D%7D%2C%22%40graph%22%3A%5B%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2FGhentLibrary%22%2C%22%40type%22%3A%22Library%22%2C%22location%22%3A%22https%3A%2F%2Fwww.wikidata.org%2Fwiki%2FQ1296%22%2C%22contains%22%3A%22http%3A%2F%2Fexample.org%2Flibrary%2Fbooks%2F1984%22%7D%2C%7B%22%40id%22%3A%22http%3A%2F%2Fexample.org%2Flibrary%2Fbooks%2F1984%22%2C%22%40type%22%3A%22Book%22%2C%22creator%22%3A%22George%20Orwell%22%2C%22title%22%3A%22Nineteen%20Eighty-Four%22%2C%22containedBy%22%3A%22http%3A%2F%2Fexample.org%2FGhentLibrary%22%7D%5D%7D&frame=%7B%22%40context%22%3A%7B%22%40vocab%22%3A%22http%3A%2F%2Fschema.org%2F%22%7D%2C%22%40explicit%22%3Atrue%2C%22%40type%22%3A%22Book%22%2C%22title%22%3A%7B%7D%2C%22creator%22%3A%7B%7D%2C%22containedBy%22%3A%7B%22%40explicit%22%3Atrue%2C%22%40type%22%3A%22Library%22%2C%22location%22%3A%7B%7D%7D%7D&context=%7B%22%40context%22%3A%22http%3A%2F%2Fschema.org%2F%22%7D">
           ... for the same data.
         </a>
+      </li>
+    </ul>
+  </div>
+  
+   <div class="slide" id="processing-rdf">
+    <h2>
+      Processing the data as RDF
+    </h2>
+    <ul>
+      <li>
+        We can use multiple approaches
+        <ul>
+          <li>
+            Processing the triples from the document indvidually
+          </li>
+          <li>
+            Using a querying approach such as SPARQL
+          </li>
+          <li>
+            ...
+          </li>
+        </ul>
+      </li>
+      <li>
+        If interested in this approach, please <a href="mailto:ruben.dedecker@ugent.be">contact us</a> for more information!
       </li>
     </ul>
   </div>
@@ -327,6 +538,99 @@
 
 <!-- ################################################################################ -->
 
+
+
+
+  <div class="slide toc" id="toc-verification">
+    <h2>
+      <a class="series" href="../">RDF & JSON-LD</a>
+      <br>
+      <a class="module" href="#title">Explanation and tooling for JSON-LD</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="#toc-intro">RDF & Linked Data</a>
+      </li>
+      <li>
+        <a href="#toc-json-jsonld">JSON & JSON-LD</a>
+      </li>
+      <li>
+        <a href="#toc-processing">JSON-LD Framing</a>
+      </li>
+      <li class="current">
+        <a href="#toc-verification">Verification</a>
+      </li>
+      <li>
+        <a href="#toc-tooling">Tooling</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="verification">
+    <h2>
+      JSON verification
+    </h2>
+    <ul>
+      <li>
+        <a href="https://json-schema.org/">JSON Schema</a> is a popular approach.
+      </li>
+      <li>
+        Note that this does <strong>not</strong> cannot verify whether the contents of documents in the <strong><code>@context</code></strong> change
+      </li>
+      <li>
+        There are no strong guarantees for the resulting RDF graph
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="slide" id="verification">
+    <h2>
+      JSON verification
+    </h2>
+    <ul>
+      <li>
+        <a href="https://json-schema.org/">JSON Schema</a> is a popular approach.
+      </li>
+      <li>
+        Note that this does <strong>not</strong> cannot verify whether the contents of documents in the <strong><code>@context</code></strong> change
+      </li>
+      <li>
+        There are no strong guarantees for the resulting RDF graph
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="verification-example">
+    <h2>
+      JSON-LD / RDF verification
+    </h2>
+    <ul>
+      <li>
+        Validation of RDF graphs make use of <strong>shapes</strong>
+      </li>
+      <li>
+        Popular options are
+        <ul>
+          <li>
+            <a href="https://www.w3.org/TR/shacl/">SHACL</a>
+          </li>
+          <li>
+            <a href="https://shex.io/">SHEX</a>
+          </li>
+        </ul> 
+      </li>
+      <li>
+        Example usage can be found in the <a href="https://shacl-playground.zazuko.com/">SHACL playground</a>.
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+<!-- ################################################################################ -->
 
 
   <div class="slide toc" id="toc-tooling">
@@ -343,10 +647,13 @@
         <a href="#toc-json-jsonld">JSON & JSON-LD</a>
       </li>
       <li>
-        <a href="#toc-framing">JSON-LD Framing</a>
+        <a href="#toc-processing">JSON-LD Framing</a>
+      </li>
+      <li>
+        <a href="#toc-verification">Verification</a>
       </li>
       <li class="current">
-        <a href="#toc-tooling">JSON-LD Tooling</a>
+        <a href="#toc-tooling">Tooling</a>
       </li>
     </ul>
   </div>
@@ -355,28 +662,32 @@
 
   <div class="slide" id="tooling">
     <h2>
-      JSON-LD Tooling
+      Tooling
     </h2>
-    <p>
+    <ul>
+      <li>
       There is tooling for JSON-LD in multiple languages:
       <br>
       <a href="https://json-ld.org/#developers">
         https://json-ld.org/#developers
       </a>
-    </p>
-    <p>
-      For Javascript / Typescript:
-      <ul>
-        <li>
-          <a href="https://github.com/digitalbazaar/jsonld.js">jsonld.js</a>
-        </li>
-        <li>
-          <a href="https://github.com/rubensworks/jsonld-streaming-parser.js">jsonld-streaming-parser.js</a>
+      </li>
+      <li>
+        For Javascript / Typescript:
+        <ul>
           <br>
-          <a href="https://github.com/rubensworks/jsonld-streaming-Serializer.js">jsonld-streaming-serializer.js</a>
-        </li>
-      </ul>
-    </p>
+          <li>
+            <a href="https://github.com/digitalbazaar/jsonld.js">jsonld.js</a>
+          </li>
+          <br>
+          <li>
+            <a href="https://github.com/rubensworks/jsonld-streaming-parser.js">jsonld-streaming-parser.js</a>
+            <br>
+            <a href="https://github.com/rubensworks/jsonld-streaming-Serializer.js">jsonld-streaming-serializer.js</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
   
 
@@ -434,6 +745,63 @@
       </li>
     </ul>
   </div>
+
+  <div class="slide" id="tooling-rdf">
+    <h2>
+      General RDF tooling
+    </h2>
+    <ul>
+      <li>
+        There is a lot of tooling to work with RDF in general in the JS / TS ecosystem
+      </li>
+      <li>
+        See the <a href="https://rdf.js.org/data-model-spec/">RDF-JS specification</a>
+      </li>
+      <li>
+        And a curated <a href="https://rdf.js.org/">list of complying libraries</a>
+        <ul>
+          <li>
+            Many of these also fall under the <a href="https://comunica.dev/association/">Comunica Association</a>, 
+            <br>
+            or are actively maintained by other parties.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Feel free to <a href="mailto:ruben.dedecker@ugent.be">contact us</a> for more information!
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="tooling-rdf">
+  <h2>
+    Verification tooling
+  </h2>
+  <ul>
+    <li>
+      SHACL is on W3C recommendation track
+    </li>
+    <li>
+      Available libraries in JS/TS
+      <ul>
+        <br>
+        <li>
+          <a href="https://github.com/TopQuadrant/shacl">TopBraid SHACL API</a> by TopQuadrant
+        </li>
+        <br>
+        <li>
+          <a href="https://github.com/zazuko/rdf-validate-shacl">rdf-validate-shacl</a> by zazuko
+        </li>
+      </ul>
+    </li>
+    <li style="font-weight: normal; font-size: .7em;">
+      TopQuadrant used to provide a SHACL library for JS/TS, but now forwards this to the zazuko implementation.
+      I have no knowledge of the level of enterprise support for the libraries sadly.
+    </li>
+  </ul>
+</div>
+  
+
 
   <div class="title slide" id="questions">
     <h2>
